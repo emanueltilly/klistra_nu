@@ -1,0 +1,14 @@
+Options -Indexes
+
+RewriteEngine On
+
+RewriteRule ^privacy/?$ /index.php?page=privacy [L]
+
+
+RewriteRule ^([a-zA-Z0-9]{4,})/?$ index.php?klister=$1 [NC,L]
+
+# Rewrite URLs within the /api folder to remove the .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^api/(.*)$ /api/$1.php [L]
+

@@ -1,0 +1,40 @@
+version: "3"
+
+networks:
+  net:
+    ipam:
+      config:
+        - subnet: ${SUBNET}
+
+services:
+  web:
+    build: ./dockerfiles/php
+    ports:
+      - "${WEB_PORT}:80"
+    volumes:
+      - ./php/public:/var/www/html
+    environment:
+      REDIS_REQUIREPASS: ${REDIS_REQUIREPASS}
+      REDIS_IP: ${REDIS_IP}
+    depends_on:
+      - redis
+    networks:
+      net:
+        ipv4_address: ${WEB_IP}
+    restart: always
+    command: ["apache2-foreground"]
+    
+
+  redis:
+    image: redis:latest
+    networks:
+      net:
+        ipv4_address: ${REDIS_IP}
+    environment:
+      REDIS_REQUIREPASS: ${REDIS_REQUIREPASS}
+      REDIS_SAVE: ${REDIS_SAVE}
+      REDIS_STORAGE_PATH: ${REDIS_STORAGE_PATH}
+    volumes:
+      - ${REDIS_STORAGE_PATH}:/data
+    command: /bin/sh -c "redis-server --save $REDIS_SAVE --requirepass $REDIS_REQUIREPASS"
+    restart: always
