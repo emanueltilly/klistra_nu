@@ -15,11 +15,13 @@ session_start(); ?>
 
 <p>The information we collect from you is used to provide you with the service you requested. We do not use your information for any other purpose, nor do we sell or share it with any third-party. However, we cannot be held responsible for the privacy practices or actions of any third-party site, extension, service, script, or anything else that you may interact with while using our website. We encourage you to review the privacy policies of these third-party services before providing them with any personal information.</p>
 
-<h4>Encryption and Security</h4>
+<h4>Encryption, Security and Open Source</h4>
 
 <p>We take the security of your data seriously. All user data, including password protected text, is encrypted at rest using industry-standard encryption algorithms. This means that even we cannot read your password protected data without your password.
 <br>
 We use industry-standard security measures to protect your data from unauthorized access, disclosure, alteration, or destruction.</p>
+
+<p>We believe in transparency and open collaboration.<b> As such, our project is open source, meaning that the source code is publicly available for anyone to view and contribute to. </b>We believe that this open approach not only fosters innovation and collaboration, but also provides additional benefits for security. With many eyes reviewing the code, any potential security vulnerabilities can be quickly identified and addressed, reducing the risk of malicious attacks. Additionally, since the code is open for inspection, users can have greater confidence in the security and privacy of the software they are using. We are committed to maintaining an open and transparent approach to software development, and we believe that this approach ultimately benefits both our users and the wider software community.</p>
 
 <h4>Third-Party Websites</h4>
 
