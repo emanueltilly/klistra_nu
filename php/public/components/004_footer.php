@@ -10,5 +10,7 @@ session_start(); ?>
     <a href="/?page=stats">Stats</a>
     -  
     <a href="https://github.com/emanueltilly/klistra_nu" target="_blank">Contribute on GitHub</a>
+
+    <a href="#" onclick="setCookieAndReload(); return false;">Change Display Mode</a>
 </p>
 </div>

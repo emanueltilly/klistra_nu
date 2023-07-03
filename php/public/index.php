@@ -3,6 +3,8 @@
 session_start();
 if (!isset($_SESSION["createdPaste"])) {
     $_SESSION["createdPaste"] = "";
+
+
 }
 
 //INCLUDES
@@ -29,12 +31,55 @@ include_once "./include/guid.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="static/script.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <?php
     
+    if (isset($_COOKIE["Lightmode"])) {
+        $cookieValue = $_COOKIE["Lightmode"];
+    
+        if ($cookieValue == "1") {
+            // Cookie value matches the expected value
+            echo '<link rel="stylesheet" type="text/css" href="singe.css">';
+        } else {
+            // Cookie value is different
+            echo '<link rel="stylesheet" type="text/css" href="syle.css">';
+        }
+    } else {
+        // Cookie is not set
+        echo '<link rel="stylesheet" type="text/css" href="syle.css">';
+    }
+    ?>
+    
+    <!--this is for lightmode by Johannes Tilly and chatgpt honestly-->
+    <script>
+        function setCookieAndReload() {
+            // Set the cookie using JavaScript
+            dvar expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 399);
+
+            var cookieValue = document.cookie;
+
+            if (cookieValue.includes("Lightmode=1")) {
+            // Cookie with the expected value exists
+                var cookieValue = "0"; 
+            } else {
+            // Cookie does not exist or has a different value
+                var cookieValue = "1";
+            }
+
+            var cookieName = "Lightmode";
+            var cookieExpiration = "expires=" + expirationDate.toUTCString();
+
+            document.cookie = cookieName + "=" + cookieValue + "; " + cookieExpiration + "; path=/";
+
+            // Reload the page
+            window.location.reload();
+        }
+    </script>
    
     </script>
   </head>
   <body>
+  
     <div class="pageWrapper">
     <div class="master_container">
 	    <div id="001_head_container"></div>
