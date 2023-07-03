@@ -1,4 +1,7 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
+
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/hash.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/encryption.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/redis.php";

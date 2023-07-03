@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+header("Access-Control-Allow-Origin: *");
+
 if (isset($_SESSION["createdPaste"])) {
     if (strlen($_SESSION["createdPaste"]) > 4) {
         header("HTTP/1.1 200 OK");
