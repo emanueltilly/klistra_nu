@@ -53,7 +53,7 @@ include_once "./include/guid.php";
     <script>
         function setCookieAndReload() {
             // Set the cookie using JavaScript
-            dvar expirationDate = new Date();
+            var expirationDate = new Date();
             expirationDate.setDate(expirationDate.getDate() + 399);
 
             var cookieValue = document.cookie;
