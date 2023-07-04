@@ -1,0 +1,213 @@
+:root {
+  /*Colors*/
+  --background: #ecdefc;
+  --surface: #917ea6;
+  --primary: #bb86fc;
+  --secondary: #03dac6;
+  --on_background: #D4D4D4;
+  --on_surface: #3c2457;
+  --on_surface_darker: #535353;
+  --on_primary: #030204;
+  --on_secondary: #000202;
+  /*Other*/
+   --default_radius: 10px;
+}
+body {
+   background-color: var(--background);
+   color: var(--on_background);
+   font-family: 'Roboto Mono', monospace;
+   padding: 0px;
+   margin: 0px;
+}
+a {
+   color: inherit;
+   text-decoration: inherit;
+}
+/*Page Master*/
+.pageWrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.master_container {
+   max-width: 1000px;
+   min-height: 500px;
+   margin-top: -21px;
+}
+/*Popups */
+.swal-button{
+   background-color: var(--primary)!important;
+   color: var(--on_primary)!important;
+}
+.swal-button--confirm{
+   background-color: var(--primary)!important;
+   color: var(--on_primary)!important;
+}
+/*Head*/
+.head_container_master {
+   color: var(--on_surface);
+   border-radius: var(--default_radius);
+   margin-top: 50px;
+   padding: 0px;
+   padding-left: 15px;
+   text-align: center;
+}
+.head_container_master h1{
+   color: var(--primary);
+}
+/*Create*/
+.create_container_master {
+   background-color: var(--surface);
+   color: var(--on_surface);
+   border-radius: var(--default_radius);
+   margin-top: 50px;
+   padding: 0px;
+}
+.create_container_master h4{
+   padding-left: 15px;
+}
+.createForm {
+   color: var(--on_surface);
+   padding-bottom: 0px;
+}
+.createForm label {
+   padding-left: 15px;
+}
+.createForm textarea {
+   width: 95%;
+   background-color: var(--surface);
+   color: var(--on_surface);
+   border: 0;
+   outline: none;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+   resize: none;
+   font-family: 'Roboto Mono', monospace;
+   padding-left: 15px;
+}
+.createForm input {
+   background-color: var(--on_surface_darker);
+   color: var(--on_surface);
+   border: 0;
+   resize: none;
+   font-family: 'Roboto Mono', monospace;
+   margin-bottom: 10px;
+   width: 97%;
+   box-sizing:border-box;
+}
+.createForm select {
+   background-color: var(--on_surface_darker);
+   color: var(--on_surface);
+   border: 0;
+   resize: none;
+   font-family: 'Roboto Mono', monospace;
+   margin-bottom: 10px;
+   width: 97%;
+   box-sizing:border-box;
+}
+.createForm input[type=submit] {
+   background-color: var(--primary);
+   color: var(--on_primary);
+   border: 0;
+   resize: none;
+   font-family: 'Roboto Mono', monospace;
+   font-weight: bold;
+   width: 100%;
+   height: 50px;
+   border-radius: var(--default_radius);
+   margin-top: 15px;
+   margin-bottom: 0px;
+   padding: 0;
+}
+.createForm input[type=button] {
+   background-color: var(--primary);
+   color: var(--on_primary);
+   border: 0;
+   resize: none;
+   font-family: 'Roboto Mono', monospace;
+   font-weight: bold;
+   width: 100%;
+   height: 50px;
+   border-radius: var(--default_radius);
+   margin-top: 15px;
+   margin-bottom: 0px;
+   padding: 0;
+}
+.createFormSubmitWrapper {
+   width: 100%;
+   height: 60px;
+   margin-left: 0px;
+   padding-left: 0px;
+   padding-bottom: 0px;
+   text-align: center;
+}
+.createFormPropertyRow {
+   display: flex;
+   height: 30px;
+   margin: 0;
+   padding: 0;
+}
+.createFormPropertyRowLeft {
+   width: 200px;
+}
+.createFormPropertyRowRight {
+   flex: 1;
+}
+@media only screen and (max-width: 350px) {
+   .createFormPropertyRow {
+       display:block;
+       height: 60px;
+       margin: 0;
+       padding: 0;
+  }
+   .createFormPropertyRowLeft {
+       width: 100;
+  }
+   .createFormPropertyRowRight {
+       flex: none;
+       width: 95%;
+       padding-left: 15px;
+  }
+}
+/*FOOTER*/
+.footer_container_master {
+   background-color: var(--background);
+   color: var(--on_surface_darker);
+   border-radius: var(--default_radius);
+   margin-top: 50px;
+   padding: 0px;
+}
+.footer_container_master h2{
+   padding-left: 15px;
+   padding-top: 10px;
+   text-align: center;
+}
+.footer_container_master h4{
+   padding-left: 15px;
+}
+.footer_container_master p{
+   padding-left: 15px;
+   font-size: 12px;
+   text-align: center;
+}
+/*DOCS*/
+.docs_container_master {
+   background-color: var(--surface);
+   color: var(--on_surface);
+   border-radius: var(--default_radius);
+   margin-top: 50px;
+   font-size: 12px;
+   padding: 0px;
+}
+.docs_container_master h2{
+   padding-left: 15px;
+   padding-top: 10px;
+}
+.docs_container_master h4{
+   padding-left: 15px;
+}
+.docs_container_master p{
+   padding-left: 15px;
+   font-size: 12px;
+}
