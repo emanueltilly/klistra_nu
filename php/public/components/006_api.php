@@ -68,7 +68,43 @@ session_start(); ?>
 }</code>
 </p>
 
+<br>
+<h4>UPDATE</h4>
+  <p>
+    Endpoint: <code>https://klistra.nu/api/update</code>
+    <br>
+    Required method: <code>POST</code>
+    <br>
+    Required body: <code>JSON Object</code>
+  </p>
+  <h4>JSON Object Keys and Values</h4>
+  <ul>
+        <li><code>id</code>: Required string value representing the ID of the existing data you wish to update.</li>
+        <li><code>pass</code>: Required string value representing the password to access the data. This must be the correct current password of the data you wish to update.</li>
+        <li><code>pasteText</code>: Required string value representing the updated text data.</li>
+  </ul>
+  <p>
+    A successful request should result in a <code>200 OK</code> status and <code>Content-Type: text/plain</code> with the confirmation of the update.
+  </p>
+  <h4>Example request:</h4>
+  <p><code>{
+    "id": "hawk34",
+    "pass": "mypassword",
+    "pasteText": "Updated Text Data"
+  }</code></p>
+<h4>Example response:</h4>
+  <p><code>{
+    "id":"hawk34",
+    "timeoutUnix":1683288219,
+    "passwordProtected":true,
+    "text":"test"
+}</code>
+</p>
 
+<p>
+Please note that updating an entry will not change its expiration time or password. It only updates the text data stored under that entry. The password provided in the request must match the current password of the entry for the update to be successful. The updated entry will maintain the same paste ID as provided in the request.
+  <br>
+</p>
 
 <br>
 <h4>GET PROTECTED STATUS</h4>
