@@ -10,5 +10,10 @@ RUN pecl install redis && docker-php-ext-enable redis
 RUN echo "session.gc_maxlifetime = 604800" >> /usr/local/etc/php/php.ini
 RUN echo "session.cookie_lifetime = 604800" >> /usr/local/etc/php/php.ini
 
+# Configure Apache logging
+RUN echo "ErrorLog /var/log/apache2/error.log" >> /etc/apache2/apache2.conf
+RUN echo "LogLevel error" >> /etc/apache2/apache2.conf
+RUN echo "CustomLog /dev/null combined" >> /etc/apache2/apache2.conf
+
 # Start Apache
 CMD ["apache2-foreground"]
