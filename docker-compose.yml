@@ -16,6 +16,7 @@ services:
     environment:
       REDIS_REQUIREPASS: ${REDIS_REQUIREPASS}
       REDIS_IP: ${REDIS_IP}
+      ENCRYPTION_SALT: ${ENCRYPTION_SALT}
     depends_on:
       - redis
     networks:

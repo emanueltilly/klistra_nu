@@ -6,6 +6,12 @@ class Encryption
 
     public function __construct($key)
     {
+        //Add salt
+        $salt = getenv("ENCRYPTION_SALT");
+        if ($salt !== false){
+            $key = $salt . $key;
+        }  
+        
         $this->key = hash("sha256", $key, true);
     }
 
