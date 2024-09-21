@@ -29,11 +29,6 @@ window.addEventListener("load", function () {
     "005_privacy_container",
     "components/005_privacy.php"
   );
-  window.fadeIn = loadContent("006_api_container", "components/006_api.php");
-  window.fadeIn = loadContent(
-    "007_stats_container",
-    "components/007_stats.php"
-  );
 
   if (document.getElementById("003_read_container") !== null) {
     loadReadPageData();

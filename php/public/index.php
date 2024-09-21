@@ -54,12 +54,6 @@ include_once "./include/guid.php";
                 case "privacy":
                     echo '<div id="005_privacy_container"></div>';
                     break;
-                case "api":
-                    echo '<div id="006_api_container"></div>';
-                    break;
-                case "stats":
-                    echo '<div id="007_stats_container"></div>';
-                    break;
             }
         } else {
              ?>
