@@ -413,6 +413,12 @@ function copyToClipboard() {
 
 // Fetch the encryption key from the backend API
 async function fetchKey() {
+  const existingKey = getSessionKey(); // Check if a valid key is already stored
+
+  if (existingKey) {
+    return existingKey;
+  }
+
   const response = await fetch("/api/token", {
     method: "GET",
     headers: {
@@ -425,8 +431,39 @@ async function fetchKey() {
   }
 
   const data = await response.json();
+  const key = data.key;
 
-  return data.key; // Assuming the key is returned in JSON format like { "key": "your-key-string" }
+  setSessionKey(key); // Store key in sessionStorage with timestamp
+
+  return key;
+}
+
+function getSessionKey() {
+  const storedKeyData = sessionStorage.getItem("encryptionKey");
+
+  if (!storedKeyData) {
+    return null;
+  }
+
+  const { key, timestamp } = JSON.parse(storedKeyData);
+  const now = Date.now();
+
+  // Check if the key is older than 5 minutes (300000 ms)
+  if (now - timestamp > 300000) {
+    sessionStorage.removeItem("transportKey"); // Remove expired key
+    return null;
+  }
+
+  return key; // Return the valid key
+}
+
+function setSessionKey(key) {
+  const keyData = {
+    key,
+    timestamp: Date.now(),
+  };
+
+  sessionStorage.setItem("transportKey", JSON.stringify(keyData));
 }
 
 // Convert string to ArrayBuffer
