@@ -27,15 +27,13 @@ services:
     
 
   redis:
-    image: redis:latest
+    image: redis:7.4
     networks:
       net:
         ipv4_address: ${REDIS_IP}
     environment:
-      REDIS_REQUIREPASS: ${REDIS_REQUIREPASS}
-      REDIS_SAVE: ${REDIS_SAVE}
-      REDIS_STORAGE_PATH: ${REDIS_STORAGE_PATH}
+      - REDIS_PASSWORD=${REDIS_REQUIREPASS}
+    command: redis-server --requirepass ${REDIS_REQUIREPASS} --save ${REDIS_SAVE}
     volumes:
       - ${REDIS_STORAGE_PATH}:/data
-    command: /bin/sh -c "redis-server --save $REDIS_SAVE --requirepass $REDIS_REQUIREPASS"
     restart: always

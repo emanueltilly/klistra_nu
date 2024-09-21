@@ -18,6 +18,7 @@ class RedisConn
                 $this->redis->auth($this->redisAuth);
             } catch (Exception $e) {
                 $this->connected = false;
+                error_log("Redis connection failed: " . $e->getMessage(), 0);
                 return false;
             }
         }
