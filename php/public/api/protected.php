@@ -43,7 +43,7 @@ try {
         header("HTTP/1.1 404 Not Found");
         die();
     }
-    $response->passwordProtected = $dbObject->passwordProtected;
+    $response->protected = $dbObject->protected;
 } catch (Exception $e) {
     header("HTTP/1.1 500 Internal Server Error");
     echo "Error storing Klister";

@@ -72,7 +72,7 @@ $id = $idGen->GetNew();
 $entry = new stdClass();
 $entry->id = $id;
 $entry->timeoutUnix = $timeoutUnix;
-$entry->passwordProtected = $inputObj->passProtect;
+$entry->protected = $inputObj->passProtect;
 $entry->password = create_secure_hash($inputObj->pass, $id);
 
 //PASTE ENCRYPTION

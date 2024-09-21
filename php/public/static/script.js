@@ -266,7 +266,7 @@ async function loadReadPageData() {
   $protectionObject = await apiGetEntryProtectionLevel($klisterID);
 
   //ASK USER FOR PASSWORD
-  if ($protectionObject.passwordProtected == true) {
+  if ($protectionObject.protected == true) {
     console.log("Paste is password protected");
 
     swal({
@@ -286,7 +286,7 @@ async function loadReadPageData() {
         .then((entry) => {
           populateReadPageWithData(
             entry.text,
-            entry.passwordProtected,
+            entry.protected,
             entry.timeoutUnix
           );
         })
@@ -302,7 +302,7 @@ async function loadReadPageData() {
       .then((entry) => {
         populateReadPageWithData(
           entry.text,
-          entry.passwordProtected,
+          entry.protected,
           entry.timeoutUnix
         );
       })

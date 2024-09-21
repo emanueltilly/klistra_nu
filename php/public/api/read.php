@@ -50,7 +50,7 @@ try {
     //PREPARE DATA
     $response->id = $dbObject->id;
     $response->timeoutUnix = $dbObject->timeoutUnix;
-    $response->passwordProtected = $dbObject->passwordProtected;
+    $response->protected = $dbObject->protected;
 
     //DE-ENCRYPT DATA
     $passwordHash = create_secure_hash($inputObj->pass, $inputObj->id);
