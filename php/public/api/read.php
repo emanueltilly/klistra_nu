@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 header("Access-Control-Allow-Origin: *");
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/hash.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/encryption.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/redis.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/include/transport_encryption.php";
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header("HTTP/1.1 400 Bad Request");
@@ -13,8 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 
 //Get data
 try {
-    $inputJSON = file_get_contents("php://input");
-    $inputObj = json_decode($inputJSON);
+    $tEnc = new TransportEncryption();
+    $inputEncrypted = file_get_contents("php://input");
+    $inputObj = $tEnc->decryptJSON($inputEncrypted);
 } catch (Exception $e) {
     header("HTTP/1.1 204 No Content");
     die();
@@ -67,8 +69,9 @@ try {
 
 //PRESENT DATA
 header("HTTP/1.1 200 OK");
-header("Content-Type: application/json; charset=utf-8");
-echo json_encode($response);
+header("Content-Type: text/plain; charset=utf-8");
+$encrypted_response = $tEnc->encryptJSON(@$response);
+echo $encrypted_response;
 die();
 
 function validationError($reason)

@@ -7,6 +7,7 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/include/hash.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/encryption.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/id.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/include/redis.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/include/transport_encryption.php";
 
 //Check request
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
@@ -16,8 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 
 //Get data
 try {
-    $inputJSON = file_get_contents("php://input");
-    $inputObj = json_decode($inputJSON);
+    $tEnc = new TransportEncryption();
+    $inputEncrypted = file_get_contents("php://input");
+    $inputObj = $tEnc->decryptJSON($inputEncrypted);
 } catch (Exception $e) {
     header("HTTP/1.1 204 No Content");
     die();
