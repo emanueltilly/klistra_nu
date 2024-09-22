@@ -33,7 +33,7 @@ include_once "./include/guid.php";
         rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="static/script_min.js"></script>
+    <script src="static/script.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 
 

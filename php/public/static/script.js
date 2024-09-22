@@ -418,6 +418,7 @@ async function fetchKey() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
     },
   });
 
@@ -434,7 +435,7 @@ async function fetchKey() {
 }
 
 function getSessionKey() {
-  const storedKeyData = sessionStorage.getItem("encryptionKey");
+  const storedKeyData = sessionStorage.getItem("transportKey");
 
   if (!storedKeyData) {
     return null;
